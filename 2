@@ -1,0 +1,20 @@
+from datetime import date
+
+def get_weekday(day: int, month: int, year: int) -> str:
+    """Возвращает название дня недели для заданной даты."""
+    try:
+        d = date(year, month, day)
+        # weekday() возвращает 0 для понедельника, 6 для воскресенья
+        days = ["понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье"]
+        return days[d.weekday()]
+    except ValueError:
+        return "Некорректная дата"
+
+# Пример использования:
+day = int(input("Введите день рождения: "))
+month = int(input("Введите месяц рождения: "))
+year = int(input("Введите год рождения: "))
+
+weekday = get_weekday(day, month, year)
+print(f"Этот день был: {weekday}")
+
