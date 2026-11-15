@@ -1,0 +1,21 @@
+from datetime import date
+
+def calculate_age(day: int, month: int, year: int) -> int:
+    """Вычисляет возраст по дате рождения."""
+    today = date.today()
+    # Сначала считаем разницу в годах
+    age = today.year - year
+    
+    # Если день рождения ещё не наступил в этом году — уменьшаем возраст на 1
+    if (month, day) > (today.month, today.day):
+        age -= 1
+    
+    return age
+
+# Пример использования:
+day = int(input("Введите день рождения: "))
+month = int(input("Введите месяц рождения: "))
+year = int(input("Введите год рождения: "))
+
+age = calculate_age(day, month, year)
+print(f"Вам {age} лет")
